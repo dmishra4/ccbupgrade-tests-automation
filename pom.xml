@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hydroottawa.ccbupgrage</groupId>
+  <artifactId>ccbupgrade-tests-automation</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>ccbupgrade-tests-automation</name>
+  <modules>
+  	<module>ccbupgrade-tests-automation-poc</module>
+  </modules>
+  <properties>
+    <file.encoding>UTF-8</file.encoding>
+	<project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+    <maven.compile.encoding>UTF-8</maven.compile.encoding>
+</properties>
+  <dependencies>
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.141.59</version>
+</dependency>
+
+<!-- 		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>4.2.0</version>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-core</artifactId>
+    <version>4.2.0</version>
+</dependency>
+	<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>4.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+				<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.0.7</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+<!-- <dependency>
+	<groupId>net.masterthought</groupId>
+	<artifactId>cucumber-reporting</artifactId>
+	<version>4.6.0</version>
+</dependency> -->
+
+<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>4.6.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.github.mkolisnyk/cucumber-reports -->
+
+<!-- https://mvnrepository.com/artifact/com.github.mkolisnyk/cucumber-report-generator -->
+<dependency>
+    <groupId>com.github.mkolisnyk</groupId>
+    <artifactId>cucumber-report-generator</artifactId>
+    <version>1.3.5</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.cedarsoftware/json-io -->
+<dependency>
+    <groupId>com.cedarsoftware</groupId>
+    <artifactId>json-io</artifactId>
+    <version>4.10.1</version>
+</dependency>
+<!-- Below dependency is for jdbc connection -->
+<dependency>
+		<groupId>com.oracle</groupId>
+		<artifactId>ojdbc</artifactId>
+		<version>8</version>
+		<scope>system</scope>
+		<systemPath>C:\HydroOttawa\CCB-Upgrade\ccbworkspace\ccbupgrade-tests-automation\ccbupgrade-tests-automation-poc\src\test\resources\com\hydroottawa\ccbupgrade\drivers\ojdbc8.jar</systemPath>
+	</dependency>
+<!-- Below dependency is for Test Execution Recording -->
+<dependency>
+		<groupId>com.ATUTestRecorder</groupId>
+		<artifactId>ATUTestExecutionRecorder</artifactId>
+		<version>2.1</version>
+		<scope>system</scope>
+		<systemPath>C:\HydroOttawa\CCB-Upgrade\ccbworkspace\ccbupgrade-tests-automation\ccbupgrade-tests-automation-poc\src\test\resources\com\hydroottawa\ccbupgrade\drivers\ATUTestRecorder_2.1.jar</systemPath>
+	</dependency>
+  </dependencies>
+  <build>
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+					<forceJavacCompilerUse>true</forceJavacCompilerUse>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.21.0</version>
+				<configuration>
+					<includes>
+						<include>**/POC_Runner.java</include>
+					</includes>
+				</configuration>
+			</plugin>					
+		</plugins>
+	</pluginManagement>
+  </build>
+</project>
